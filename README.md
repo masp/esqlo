@@ -2,7 +2,7 @@
 
 Build data-focused UIs fast with just SQL and HTML.
 
-```
+```html
 <sql src="postgres://localhost:12345" id="users">
   SELECT id, name, account_age FROM users LIMIT 10
 </sql>
