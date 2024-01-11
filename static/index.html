@@ -1,0 +1,21 @@
+<!-- Basic page with hello message -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Esqlo</title>
+    <script src="/js/htmx.min.js"></script>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <a href="/other.html">Link to Other</a>
+    <sql id="chats" src="duckdb">SELECT * FROM 'datasets/best_foods.csv'</sql>
+    {{#chats}}
+        <p>Food: {{food_name}}</p>
+        <p>Rating: {{stars}}</p>
+    {{/chats}}
+    <div hx-put="/messages.html">
+        Put To Messages
+    </div>
+</body>
+

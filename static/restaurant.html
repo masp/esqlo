@@ -1,0 +1,23 @@
+<h1>Reviews</h1>
+<table>
+  <tr>
+    <th>Restaurant</th>
+    <th>Reviewer</th>
+    <th>Stars</th>
+    <th>Review</th>
+  </tr>
+  <!-- Run an SQL query against our local file using duckdb, and save the result in a table accessible in this HTML file -->
+  <sql src="duckdb" id="reviews">
+    SELECT restaurant, reviewer, stars, review FROM "reviews.csv"
+  </sql>
+
+  <!-- This is Mustache syntax. Here, we are saying "go over every review, and replace {{xxx}} with the result from our SQL query -->
+  {{#reviews}}
+    <tr>
+      <td>{{restaurant}}</td>
+      <td>{{reviewer}}</td>
+      <td>{{stars}}</td>
+      <td>{{review}}</td>
+    </tr>
+  {{/reviews}}
+</table>
